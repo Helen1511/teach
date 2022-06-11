@@ -8,26 +8,67 @@
     <title>Научиться учиться</title>
 </head>
 <body>
+<!--
+Этот класс "блок" page - можно было поместить в body,
+и тогда не пришлось бы создавать div блок
+-->
 <div class="page">
-        <header class="header">
-            <div class="logo__plase_header">
-                <img src="images\logo.svg" alt="Лого яндекс">
-            </div>
-            <div class="header_title">
-                <p class="title">Научиться учиться</p>
-            </div>
-            <div class="header_subtitle">
-                <p>Какие современные и эффективные подходы к обучению вы можете использовать в своей жизни? <a class="header_subtitle_link" href='#'>Узнать→</a></p>
-            </div>
-            <div class="header__main-illustration">
-                <img class="main-illustration" src="images\two_again.png" alt="Иллюстрация">
-            </div>
-            <div class="header__square-pic">
-            </div>
-        </header>
+    <header class="header">
+        <!--
+        Допустила ошибку в наименовании классов.
+        У тебя написано что есть блок logo и модификатор place со значение header
+        По БЭМ суть класса "блок" - что бы выделить общие черты
+        А модификатор - что бы подстроить под себя (модифицировать как то)
+        Пример: в задании тебе нужен будет логотип в 2-х местах (header, footer),
+        но нюанс в том что он немного отличается в footer (белый).
+        Получается в блоке logo ты пишешь общие стили, а в модификаторах тебе надо подгружать логотипы (background)
+        Но ты реализовала через img, можно и так - тогда тебе не нужны модификаторы
+
+        с другой стороны img служит для загрузки важных для контента (логики) картинок,
+        а всякие не важные картинки (типо логотипа, иконок всяких) можно загружать через css background
+
+        Зачем для логотипа div блок? не нужно все пихать в блоки))
+        Пример:
+        <img class="logo logo_place-header" src="images\logo.svg" alt="Лого яндекс">
+        -->
+        <div class="logo__plase_header">
+            <img src="images\logo.svg" alt="Лого яндекс">
+        </div>
+        <!--
+        Лишний div
+        Неверно назвала класс (написано Блок header, элемент title)
+        это header__title - через двойное нижнее тире
+        и ты еще написала блок title - его нет в задании и он не нужен
+        -->
+        <div class="header_title">
+            <p class="title">Научиться учиться</p>
+        </div>
+        <!--
+        Лишний div
+        Неверно назвала класс (написано Блок header, элемент subtitle)
+        header_subtitle - header__subtitle
+        header_subtitle_link - header__link
+        -->
+        <div class="header_subtitle">
+            <p>Какие современные и эффективные подходы к обучению вы можете использовать в своей жизни? <a class="header_subtitle_link" href='#'>Узнать →</a></p>
+        </div>
+        <!--
+        Лишний div
+        Вот тут уже img важен
+        -->
+        <div class="header__main-illustration">
+            <img class="main-illustration" src="images/two_again.png" alt="Иллюстрация">
+        </div>
+        <div class="header__square-pic"></div>
+    </header>
 
     <main class="content">
         <section class="description">
+            <!--
+            Блок two-columns - для всех элементов, а не только для two-columns_brief
+            Как и выше, неверное название классов
+            two-columns_brief - two-columns__brief, через двойное нижнее тире (это элемент)
+            -->
              <div class="two-columns">
                 <p class="two-columns_brief">Главные проблемы в обучении</p>
             </div>
@@ -43,7 +84,7 @@
                 </div>
             </div>
         </section>
-            
+
         <section class="digits">
             <div class="section-title">
                 <h2>Цифры и факты</h2>
@@ -95,7 +136,7 @@
             <h2 class="feinman_subtitle">Выучить и не забыть.</h2>
             <a class="feinman_link" href="#">Подробнее →</a>
         </section>
-            
+
         <section class="kaufman">
             <div class="section-title__theme_dark">
                 <h2>Принципы обучения</h2>
